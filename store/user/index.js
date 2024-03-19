@@ -1,3 +1,5 @@
+import { reqTest } from '@/api/index.js'
+
 const state = {
 	userInfo: {	
 		userId: "",
@@ -17,7 +19,13 @@ const mutations = {
 	}
 }
 const actions = {
-	
+	helloTest({state}) {
+		reqTest().then(res => {
+			console.log(JSON.stringify(res.data));
+		}).catch(err => {
+			console.log(JSON.stringify(err));
+		});
+	}
 }
 const getters = {}
 

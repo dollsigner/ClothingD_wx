@@ -59,7 +59,7 @@
 		<view>
 			<!-- 输入框示例 -->
 			<uni-popup ref="inputDialog" type="dialog">
-				<uni-popup-dialog ref="inputClose" mode="input" title="输入内容" value="对话框预置提示内容!" placeholder="请输入内容"
+				<uni-popup-dialog ref="inputClose" mode="input" title="输入内容" value="" placeholder="请输入内容"
 					@confirm="dialogInputConfirm"></uni-popup-dialog>
 			</uni-popup>
 		</view>
@@ -257,14 +257,9 @@
 				console.log("回复人物：" + JSON.stringify(item));
 				console.log("调起回复接口");
 				this.inputDialogToggle();
-				console.log("store: " + JSON.stringify(this.$store.state))
-				
-				/* uni.request({
-				    url: 'http://127.0.0.1:8080/hello', //仅为示例，并非真实接口地址。
-				    success: (res) => {
-				        console.log(JSON.stringify(res));
-				    }
-				}); */
+			
+				// 测试hello接口
+				this.$store.dispatch('helloTest');
 			},
 			inputDialogToggle() {
 				console.log("inputDialogToggle!");

@@ -5400,7 +5400,9 @@ module.exports = index_cjs;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var state = {
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = __webpack_require__(/*! @/api/index.js */ 209);
+
+var state = {
   userInfo: {
     userId: "",
     userRole: "",
@@ -5418,8 +5420,14 @@ var mutations = {
     state.userIntroduction = userIntroduction;
   } };
 
-var actions = {};
-
+var actions = {
+  helloTest: function helloTest(_ref2) {var state = _ref2.state;
+    (0, _index.reqTest)().then(function (res) {
+      console.log(JSON.stringify(res.data));
+    }).catch(function (err) {
+      console.log(JSON.stringify(err));
+    });
+  } };
 
 var getters = {};var _default =
 
@@ -5428,6 +5436,55 @@ var getters = {};var _default =
   mutations: mutations,
   actions: actions,
   getters: getters };exports.default = _default;
+
+/***/ }),
+
+/***/ 209:
+/*!*************************************************************************!*\
+  !*** C:/Users/86132/Desktop/斯达迪/毕设/cyh/Clothing/ClothingD/api/index.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.reqTest = void 0;var _request = __webpack_require__(/*! @/api/request.js */ 210);
+
+//test 请求
+var reqTest = function reqTest() {
+  return (0, _request.request)({
+    url: '/hello',
+    method: 'GET' });
+
+};exports.reqTest = reqTest;
+
+/***/ }),
+
+/***/ 210:
+/*!***************************************************************************!*\
+  !*** C:/Users/86132/Desktop/斯达迪/毕设/cyh/Clothing/ClothingD/api/request.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.request = void 0;function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}var baseUrl = 'http://127.0.0.1:8080'; //域名或选取所有接口不变的那一部分
+var request = function request() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  //异步封装接口，使用Promise处理异步请求
+  return new Promise(function (resolve, reject) {
+    // 发送请求
+    uni.request({
+      url: baseUrl + options.url || '', //接收请求的API
+      method: options.method || 'GET', //接收请求的方式,如果不传默认为GET
+      data: options.data || {} //接收请求的data,不传默认为空
+    }).then(function (data) {var _data = _slicedToArray(
+      data, 2),err = _data[0],res = _data[1];
+      resolve(res);
+    }).catch(function (error) {
+      reject(error);
+    });
+  });
+};exports.request = request;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

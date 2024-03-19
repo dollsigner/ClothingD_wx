@@ -423,14 +423,9 @@ var _default =
       console.log("回复人物：" + JSON.stringify(item));
       console.log("调起回复接口");
       this.inputDialogToggle();
-      console.log("store: " + JSON.stringify(this.$store.state));
 
-      /* uni.request({
-                                                                      url: 'http://127.0.0.1:8080/hello', //仅为示例，并非真实接口地址。
-                                                                      success: (res) => {
-                                                                          console.log(JSON.stringify(res));
-                                                                      }
-                                                                  }); */
+      // 测试hello接口
+      this.$store.dispatch('helloTest');
     },
     inputDialogToggle: function inputDialogToggle() {
       console.log("inputDialogToggle!");
