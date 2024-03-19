@@ -1,0 +1,58 @@
+{
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": false,
+    "postcss": false,
+    "minified": false,
+    "newFeature": true,
+    "bigPackageSizeSupport": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "",
+  "appid": "wxd92b08532c600ea4",
+  "projectname": "ClothingD",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": 0,
+      "list": [
+        {
+          "name": "detail",
+          "query": "",
+          "id": 0,
+          "pathName": "pages/productDetail/productDetail"
+        },
+        {
+          "name": "community",
+          "id": 1,
+          "pathName": "pages/community/community"
+        },
+        {
+          "name": "editPublish",
+          "id": 2,
+          "pathName": "pages/editPublish/editPublish"
+        },
+        {
+          "name": "message",
+          "id": 3,
+          "pathName": "pages/message/message"
+        }
+      ]
+    }
+  }
+}

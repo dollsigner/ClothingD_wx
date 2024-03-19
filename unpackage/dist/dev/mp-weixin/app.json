@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/personalHome/personalHome",
+    "pages/community/community",
+    "pages/message/message",
+    "pages/productDetail/productDetail",
+    "pages/editPublish/editPublish"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "fontSize": "20px",
+    "iconWidth": "24px",
+    "list": [
+      {
+        "text": "社区",
+        "pagePath": "pages/community/community"
+      },
+      {
+        "text": "消息",
+        "pagePath": "pages/message/message"
+      },
+      {
+        "text": "主页",
+        "pagePath": "pages/personalHome/personalHome"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

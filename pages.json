@@ -1,0 +1,92 @@
+{
+	"pages": [{
+		"path": "pages/personalHome/personalHome",
+		"style": {
+			"navigationBarTitleText": "主页",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/community/community",
+		"style": {
+			"navigationBarTitleText": "社区",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/message/message",
+		"style": {
+			"navigationBarTitleText": "消息",
+			"enablePullDownRefresh": false
+		}
+	}, {
+		"path": "pages/productDetail/productDetail",
+		"style": {
+			"navigationBarTitleText": "作品详情",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/editPublish/editPublish",
+		"style": {
+			"navigationBarTitleText": "编辑",
+			"enablePullDownRefresh": false
+		}
+
+	}],
+
+
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"fontSize": "20px",
+		"iconWidth": "24px",
+		"list": [{
+				"text": "社区",
+				"pagePath": "pages/community/community"
+			},
+			{
+				"text": "消息",
+				"pagePath": "pages/message/message"
+			},
+			{
+				"text": "主页",
+				"pagePath": "pages/personalHome/personalHome"
+			}
+		]
+	},
+
+	"condition": { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式（list 的索引项）
+		"list": [{
+				"name": "detail", //模式名称
+				"path": "pages/productDetail/productDetail", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到。
+			},
+			{
+				"name": "community",
+				"path": "pages/community/community"
+			},
+			{
+				"name": "editPublish",
+				"path": "pages/editPublish/editPublish"
+			},
+			{
+				"name": "message",
+				"path": "pages/message/message"
+			}
+		]
+	}
+}
