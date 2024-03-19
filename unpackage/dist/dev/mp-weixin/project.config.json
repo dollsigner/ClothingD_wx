@@ -51,6 +51,11 @@
           "name": "message",
           "id": 3,
           "pathName": "pages/message/message"
+        },
+        {
+          "name": "welcome",
+          "id": 4,
+          "pathName": "pages/welcome/welcome"
         }
       ]
     }

@@ -15,100 +15,100 @@
 			</uni-card>
 		</view>
 
-		<!-- 角色为用户时候的情况 -->
-		<view class="detailContainer" v-if="userInfo.role===0">
-			<uni-segmented-control :current="current" :values="userItems" @clickItem="onClickItem" styleType="button"
-				activeColor="#579dd9"></uni-segmented-control>
-			<view class="content">
-				<view v-show="current === 0" class="detailList">
-					<uni-card v-for="(item, index) in issueList" :key=index title="发布文章标题" extra="作品id"
-						class="productCard" @click="toDetial(item)">
-						<text class="uni-body">这是发布文章描述</text>
-					</uni-card>
-				</view>
-				<view v-show="current === 1" class="detailList">
-					<uni-card v-for="(item, index) in interestList" :key=index title="感兴趣作品标题" extra="感兴趣作品id"
-						class="productCard" @click="toDetial(item)">
-						<text class="uni-body">这是感兴趣作品描述</text>
-					</uni-card>
-				</view>
-				<view v-show="current === 2" class="detailList">
-					<uni-card v-for="(item, index) in boughtList" :key=index title="已购买作品标题" extra="已购买作品id"
-						class="productCard" @click="toDetial(item)">
-						<text class="uni-body">这是已购买作品描述</text>
-					</uni-card>
-				</view>
-			</view>
-		</view>
-
-		<!-- 角色为设计师时候的情况 -->
-		<view class="detailContainer" v-if="userInfo.role===1">
-			<text class="achievementNum">已成交：{{soldNum}} 件</text>
-			<uni-segmented-control :current="current" :values="designerItems" @clickItem="onClickItem"
-				styleType="button" activeColor="#579dd9"></uni-segmented-control>
-			<view class="content">
-				<view v-show="current === 0" class="detailList">
-					<uni-card v-for="(item, index) in toSellList" :key=index title="待售作品标题" extra="待售作品id"
-						class="productCard" @click="toDetail(item)">
-						<text class="uni-body">这是待售作品描述</text>
-					</uni-card>
-				</view>
-				<view v-show="current === 1" class="detailList">
-					<uni-card v-for="(item, index) in interestList" :key=index title="感兴趣作品标题" extra="已售作品id"
-						class="productCard" @click="toDetail(item)">
-						<text class="uni-body">这是已售作品描述</text>
-					</uni-card>
-				</view>
-			</view>
-		</view>
-
-		<!-- 角色为管理员时候的情况 -->
-		<view class="detailContainer" v-if="userInfo.role===2">
-			<uni-segmented-control :current="current" :values="adminItems" @clickItem="onClickItem" styleType="button"
-				activeColor="#579dd9"></uni-segmented-control>
+	<!-- 角色为用户时候的情况 -->
+	<view class="detailContainer" v-if="userInfo.role===0">
+		<uni-segmented-control :current="current" :values="userItems" @clickItem="onClickItem" styleType="button"
+			activeColor="#579dd9"></uni-segmented-control>
+		<view class="content">
 			<view v-show="current === 0" class="detailList">
-				<uni-table ref="table" :loading="loading" emptyText="暂无更多数据" @selection-change="selectionChange">
-					<uni-tr>
-						<uni-th width="33%">排名</uni-th>
-						<uni-th width="33%">设计师名字</uni-th>
-						<uni-th width="33%">设计师id</uni-th>
-					</uni-tr>
-					<uni-tr v-for="(item, index) in rankList" :key="index">
-						<uni-td>{{ index + 1}}</uni-td>
-						<uni-td>
-							<view class="name">{{ item.name }}</view>
-						</uni-td>
-						<uni-td>
-							<view class="name">{{ item.id }}</view>
-						</uni-td>
-
-					</uni-tr>
-				</uni-table>
+				<uni-card v-for="(item, index) in issueList" :key=index title="发布文章标题" extra="作品id" class="productCard"
+					@click="toDetial(item)">
+					<text class="uni-body">这是发布文章描述</text>
+				</uni-card>
 			</view>
 			<view v-show="current === 1" class="detailList">
-				<uni-table ref="table" :loading="loading" emptyText="暂无更多数据" @selection-change="selectionChange">
-					<uni-tr>
-						<uni-th width="25%">作品标题</uni-th>
-						<uni-th width="25%">作品id</uni-th>
-						<uni-th width="25%">投诉原因</uni-th>
-						<uni-th width="25%">处理结果</uni-th>
-					</uni-tr>
-					<uni-tr v-for="(item, index) in managedRecord" :key="index">
-						<uni-td>{{item.title}}</uni-td>
-						<uni-td>
-							<view class="name">{{ item.id }}</view>
-						</uni-td>
-						<uni-td>
-							<view class="name">{{ item.reason }}</view>
-						</uni-td>
-						<uni-td>
-							<view class="name">{{ item.result === 0 ? '同意，已删除' : '不同意，未删除' }}</view>
-						</uni-td>
-
-					</uni-tr>
-				</uni-table>
+				<uni-card v-for="(item, index) in interestList" :key=index title="感兴趣作品标题" extra="感兴趣作品id"
+					class="productCard" @click="toDetial(item)">
+					<text class="uni-body">这是感兴趣作品描述</text>
+				</uni-card>
+			</view>
+			<view v-show="current === 2" class="detailList">
+				<uni-card v-for="(item, index) in boughtList" :key=index title="已购买作品标题" extra="已购买作品id"
+					class="productCard" @click="toDetial(item)">
+					<text class="uni-body">这是已购买作品描述</text>
+				</uni-card>
 			</view>
 		</view>
+	</view>
+
+	<!-- 角色为设计师时候的情况 -->
+	<view class="detailContainer" v-if="userInfo.role===1">
+		<text class="achievementNum">已成交：{{soldNum}} 件</text>
+		<uni-segmented-control :current="current" :values="designerItems" @clickItem="onClickItem" styleType="button"
+			activeColor="#579dd9"></uni-segmented-control>
+		<view class="content">
+			<view v-show="current === 0" class="detailList">
+				<uni-card v-for="(item, index) in toSellList" :key=index title="待售作品标题" extra="待售作品id"
+					class="productCard" @click="toDetail(item)">
+					<text class="uni-body">这是待售作品描述</text>
+				</uni-card>
+			</view>
+			<view v-show="current === 1" class="detailList">
+				<uni-card v-for="(item, index) in interestList" :key=index title="感兴趣作品标题" extra="已售作品id"
+					class="productCard" @click="toDetail(item)">
+					<text class="uni-body">这是已售作品描述</text>
+				</uni-card>
+			</view>
+		</view>
+	</view>
+
+	<!-- 角色为管理员时候的情况 -->
+	<view class="detailContainer" v-if="userInfo.role===2">
+		<uni-segmented-control :current="current" :values="adminItems" @clickItem="onClickItem" styleType="button"
+			activeColor="#579dd9"></uni-segmented-control>
+		<view v-show="current === 0" class="detailList">
+			<uni-table ref="table" :loading="loading" emptyText="暂无更多数据" @selection-change="selectionChange">
+				<uni-tr>
+					<uni-th width="33%">排名</uni-th>
+					<uni-th width="33%">设计师名字</uni-th>
+					<uni-th width="33%">设计师id</uni-th>
+				</uni-tr>
+				<uni-tr v-for="(item, index) in rankList" :key="index">
+					<uni-td>{{ index + 1}}</uni-td>
+					<uni-td>
+						<view class="name">{{ item.name }}</view>
+					</uni-td>
+					<uni-td>
+						<view class="name">{{ item.id }}</view>
+					</uni-td>
+
+				</uni-tr>
+			</uni-table>
+		</view>
+		<view v-show="current === 1" class="detailList">
+			<uni-table ref="table" :loading="loading" emptyText="暂无更多数据" @selection-change="selectionChange">
+				<uni-tr>
+					<uni-th width="25%">作品标题</uni-th>
+					<uni-th width="25%">作品id</uni-th>
+					<uni-th width="25%">投诉原因</uni-th>
+					<uni-th width="25%">处理结果</uni-th>
+				</uni-tr>
+				<uni-tr v-for="(item, index) in managedRecord" :key="index">
+					<uni-td>{{item.title}}</uni-td>
+					<uni-td>
+						<view class="name">{{ item.id }}</view>
+					</uni-td>
+					<uni-td>
+						<view class="name">{{ item.reason }}</view>
+					</uni-td>
+					<uni-td>
+						<view class="name">{{ item.result === 0 ? '同意，已删除' : '不同意，未删除' }}</view>
+					</uni-td>
+
+				</uni-tr>
+			</uni-table>
+		</view>
+	</view>
 	</view>
 	</view>
 
@@ -192,6 +192,11 @@
 <style>
 	page {
 		height: 100%;
+		width: 100%;
+	}
+	
+	.avatar-wrapper {
+		height: 25%;
 		width: 100%;
 	}
 

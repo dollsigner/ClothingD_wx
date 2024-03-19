@@ -1,5 +1,12 @@
 {
 	"pages": [{
+		"path": "pages/welcome/welcome",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
 		"path": "pages/personalHome/personalHome",
 		"style": {
 			"navigationBarTitleText": "主页",
@@ -86,6 +93,10 @@
 			{
 				"name": "message",
 				"path": "pages/message/message"
+			},
+			{
+				"name": "welcome",
+				"path": "pages/welcome/welcome"
 			}
 		]
 	}
